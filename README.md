@@ -11,7 +11,7 @@ Another solutions is presented to trigger the stop signal (a SIGTERM signal) to 
 ## Implementation
 In your code (Flask, Django, other...), two items must be included:
 - `signal.signal(signal.SIGTERM, stayAwake)` in addition to the `import signal` (builtin library)
-- Include of the `stayAwake` function from the main.py file, that will do the keep alive logic
+- Copy the `stayAwake` function from the `main.py` file, that will do the keep alive logic
 
 ## Tests
 In case you want to perform some tests before deploying to your code, there is a Dockerfile that can be used to test it on Cloud Run
