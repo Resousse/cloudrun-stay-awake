@@ -1,6 +1,3 @@
-import os
-
-from flask import Flask
 import signal
 import logging
 import requests
@@ -8,7 +5,6 @@ import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('stayAwake')
-
 
 # Callback function to try to keep the service alive
 def stayAwake(signum, frame):
@@ -43,20 +39,3 @@ def stayAwake(signum, frame):
             logger.error("Unable to find an URL for this service")
     else:
         logger.error("Unable to retrieve Cloud Run url based on : {}".format(metadata_server_url))
-
-
-# Define trigger for SIGTERM signal, just before the service to be stopped
-signal.signal(signal.SIGTERM, stayAwake)
-
-
-#### Your Part
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    name = os.environ.get("NAME", "World")
-    return "Hello {}!".format(name)
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

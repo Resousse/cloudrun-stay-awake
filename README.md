@@ -8,10 +8,10 @@ One of the cheap solutions proposed by Guillaume (https://medium.com/google-clou
 
 Another solutions is presented to trigger the stop signal (a SIGTERM signal) to self call the service to try to keep it alive. This is what this code is about.
 
-## Implementation
-In your code (Flask, Django, other...), two items must be included:
-- `signal.signal(signal.SIGTERM, stayAwake)` in addition to the `import signal` (builtin library)
-- Copy the `stayAwake` function from the `main.py` file, that will do the keep alive logic
+## How to Use
+Easy steps:
+- `pip install cloudRunStayAwake `
+- In the main file of your code (Flask, Django, other...), add `import cloudRunStayAwake` 
 
 ## Tests
 In case you want to perform some tests before deploying to your code, there is a Dockerfile that can be used to test it on Cloud Run
