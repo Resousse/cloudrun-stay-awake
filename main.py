@@ -33,7 +33,7 @@ def stayAwake(signum, frame):
             metadata_server_url = 'http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience='+ url
             token_response = requests.get(metadata_server_url, headers={'Metadata-Flavor': 'Google'})
             jwtIdToken = token_response.text
-            function_headers = {'Authorization': f'bearer {jwtIdToken}'}
+            function_headers = {'Authorization': f'Bearer {jwtIdToken}', 'User-Agent': 'CloudRunStayAwake/1.0'}
             r = requests.get(url, headers=function_headers)
             if r:
                 logger.info("Successful attempt to keep the service alive and minimizing the cold start")
