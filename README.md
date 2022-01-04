@@ -1,5 +1,5 @@
 # Cloud Run Stay Awake
-Python implementation of the cold start mitigation proposed by [@guillaumeblaquiere](https://github.com/guillaumeblaquiere) (already implemented in [Go](https://github.com/guillaumeblaquiere/cloudrun-sigterm-selfcall) )
+Python implementation of the cold start mitigation proposed by [@guillaumeblaquiere](https://github.com/guillaumeblaquiere) (already implemented in [Go](https://github.com/guillaumeblaquiere/cloudrun-sigterm-selfcall) & [NodeJS](https://github.com/Resousse/cloudrun-stay-awake-js) )
 
 ## Purpose
 A Cloud Run GCP service stop after an idle period, this time cannot be forseen.
